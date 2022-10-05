@@ -1,4 +1,7 @@
 package persona;
+
+import java.util.Scanner;
+
 /**
  * La classe Persona definisce alcune caratteristiche e comportamenti di un
  * essere umano
@@ -9,14 +12,14 @@ package persona;
  * @version 1.0 del 28 / 09 / 2022
  */
 
-public class persona {
+public class Persona2 {
     
-    
+    public static Scanner sc = new Scanner(System.in);
     public Double altezza;
     public String cognome;
-    public String dataDiNascita;
     public String nome;
     public Float  peso;
+    private String dataDiNascita;
 
     /**
      * Costruttore della classe Persona senza parametri Per impostare i
@@ -27,7 +30,7 @@ public class persona {
      * {@link #setPeso(Float peso) }                <br>
      * {@link #setDataDiNascita(java.lang.String) }
      */
-    public persona() {
+    public Persona2() {
     }
 
     
@@ -39,16 +42,16 @@ public class persona {
      * @param nome Nome
      * @param peso Peso
      */
-    public persona(Double altezza, String cognome, String dataDiNascita, String nome, Float peso) {
+    public Persona2(Double altezza, String cognome, String dataDiNascita, String nome, Float peso) {
         this.altezza        = altezza;
         this.cognome        = cognome;
-        this.dataDiNascita  = dataDiNascita;
+        setDataDiNascita(dataDiNascita);
         this.nome           = nome;
         this.peso           = peso;
     }
 
     /**
-     * restituisce l'altezza della persona
+     * restituisce l'altezza della Persona1
      * 
      * @return altezza
      */
@@ -57,7 +60,7 @@ public class persona {
     }
     
     /**
-     * inserisce l'altezza della persona
+     * inserisce l'altezza della Persona1
      * 
      * @param altezza Altezza
      */
@@ -67,7 +70,7 @@ public class persona {
 
     
     /**
-     * restituisce il cognome della persona
+     * restituisce il cognome della Persona1
      * 
      * @return cognome
      */
@@ -76,7 +79,7 @@ public class persona {
     }
 
     /**
-     * inserisce il cognome della persona
+     * inserisce il cognome della Persona1
      * 
      * @param cognome Cognome
      */
@@ -86,7 +89,7 @@ public class persona {
 
     
     /**
-     * restituisce la data di nascita della persona
+     * restituisce la data di nascita della Persona1
      * 
      * @return dataDiNascita
      */
@@ -95,17 +98,52 @@ public class persona {
     }
     
     /**
-     * inserisce la data di nascita della persona
+     * inserisce la data di nascita della Persona1
      * 
      * @param dataDiNascita Data di nascita
      */
     public void setDataDiNascita(String dataDiNascita) {
-        this.dataDiNascita = dataDiNascita;
+        
+        boolean controllo = true;
+        
+        String splitted[] = dataDiNascita.split("/");
+        
+        try{
+            int gg = Integer.parseInt(splitted[0]);
+            int mm = Integer.parseInt(splitted[1]);
+            int aaaa = Integer.parseInt(splitted[2]);
+            if (mm < 1 || mm > 12) {
+               controllo = false;
+            }
+            
+            if (gg < 1 || gg > 31) {
+                controllo = false;
+            }
+            
+            if (aaaa < 0 || aaaa > 2022) {
+                controllo = false;
+            }
+            if (controllo) {
+                this.dataDiNascita = dataDiNascita;
+            }
+            else {
+                System.out.println("invalid format");
+            }
+            
+            
+        }catch(NumberFormatException nfe){
+            System.out.println("invalid format");
+        }
+        
+        
+        
+        
+        
     }
 
     
     /**
-     * restituisce nome della persona
+     * restituisce nome della Persona1
      * 
      * @return nome
      */
@@ -114,7 +152,7 @@ public class persona {
     }
 
     /**
-     * inserisce il nome della persona
+     * inserisce il nome della Persona1
      * 
      * @param nome Nome
      */
@@ -124,7 +162,7 @@ public class persona {
 
     
     /**
-     * restituisce il peso della persona
+     * restituisce il peso della Persona1
      * 
      * @return peso
      */
@@ -133,7 +171,7 @@ public class persona {
     }
 
     /**
-     * inserisce il peso della persona
+     * inserisce il peso della Persona1
      * 
      * @param peso Peso
      */
@@ -142,7 +180,7 @@ public class persona {
     }
     
     /**
-     * restituisce le caratteristiche della persona
+     * restituisce le caratteristiche della Persona1
      * 
      * @return riepilogo caratteristiche
      */
@@ -158,6 +196,10 @@ public class persona {
         
         
         return testo;
+    }
+
+    private void gets(String data) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

@@ -1,13 +1,13 @@
 package persona;
 
 
-public class personaProva {
+public class Persona1Prova {
     
     public static void main(String[] args){
     
-    persona p1 = new persona();
+    Persona1 p1 = new Persona1();
     
-    persona p2 = new persona(1.80, "grattarola", "17/03/2005", "giacomo", 90f);
+    Persona1 p2 = new Persona1(1.80, "grattarola", "17/03/2005", "giacomo", 90f);
     
     String info2 = p2.info();
     
