@@ -12,7 +12,7 @@ import java.util.Scanner;
  * @version 1.0 del 28 / 09 / 2022
  */
 
-public class Persona2 {
+public final class Persona2 {
     
     public static Scanner sc = new Scanner(System.in);
     public Double altezza;
